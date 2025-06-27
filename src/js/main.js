@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 //Inventory
 let products = [];
 
@@ -10,6 +12,19 @@ const editProductButton = document.getElementById("edit-product-button");
 
 //Id of current product we're editing
 let productId = null;
+
+//Alerts
+const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  },
+});
 
 // Function to render the product list
 function renderProducts() {
@@ -50,7 +65,10 @@ function addProduct(event) {
   });
 
   if (productExists) {
-    alert("This product already exist.");
+    Toast.fire({
+      icon: "warning",
+      title: "This product already exist.",
+    });
     return;
   }
 
@@ -59,9 +77,15 @@ function addProduct(event) {
     renderProducts();
     productNameInput.value = "";
     productPriceInput.value = "";
-    alert("Product were added successfully! ");
+    Toast.fire({
+      icon: "success",
+      title: "Product were added",
+    });
   } else {
-    alert("Please fill in all fields with valid data.");
+    Toast.fire({
+      icon: "warning",
+      title: "Please fill in all fields with valid data.",
+    });
   }
 }
 
@@ -79,13 +103,13 @@ function editProduct(index) {
 
 editProductButton.addEventListener("click", (event) => {
   event.preventDefault();
-  productName = productNameInput.value;
-  productPrice = productPriceInput.value;
+  const productName = productNameInput.value.trim();
+  const productPrice = parseFloat(productPriceInput.value);
 
   products[productId - 1] = {
     id: productId,
-    name: productName.trim(),
-    price: parseFloat(productPrice),
+    name: productName,
+    price: productPrice,
   };
 
   //Switch buttons
@@ -96,12 +120,23 @@ editProductButton.addEventListener("click", (event) => {
   productNameInput.value = "";
   productPriceInput.value = "";
   renderProducts();
-  alert("Product were modified successfully! ")
+  Toast.fire({
+    icon: "success",
+    title: "Product were modified successfully!",
+  });
 });
 
 // Function to delete a product
 function deleteProduct(index) {
   products.splice(index, 1);
   renderProducts();
-  alert("Product were deleted successfully! ")
+  Toast.fire({
+    icon: "success",
+    title: "Product were deleted successfully!",
+  });
 }
+
+//Expose functions to use them in HTML
+window.addProduct = addProduct;
+window.editProduct = editProduct;
+window.deleteProduct = deleteProduct;
