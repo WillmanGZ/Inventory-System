@@ -25,6 +25,7 @@ body {
   background: var(--bg);
   color: var(--primary);
   min-height: 100vh;
+  min-width: 300px;
   line-height: 1.6;
   padding: 0;
 }
@@ -34,7 +35,7 @@ header {
   background: var(--primary);
   color: var(--white);
   text-align: center;
-  padding: 2rem 1rem 1rem 1rem;
+  padding: 2rem;
   box-shadow: var(--shadow);
 }
 
