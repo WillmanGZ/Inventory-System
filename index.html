@@ -36,16 +36,31 @@
       <section id="product-form">
         <h2>Add Product</h2>
         <form id="add-product-form">
-          <input type="text" id="product-name" placeholder="Product Name" required />
-          <input type="number" id="product-quantity" placeholder="Quantity" required />
-          <input type="number" id="product-price" placeholder="Price" required />
-          <button type="submit">Add Product</button>
+          <input
+            type="text"
+            id="product-name"
+            placeholder="Product Name"
+            required
+          />
+          <input
+            type="number"
+            id="product-price"
+            placeholder="Price"
+            required
+          />
+          <button
+            type="submit"
+            id="add-product-button"
+            onclick="addProduct(event)"
+          >
+            Add Product
+          </button>
+          <button type="submit" id="edit-product-button">Edit product</button>
         </form>
       </section>
 
       <section id="product-list">
         <h2>Product List</h2>
-        <ul id="products"></ul>
       </section>
     </main>
 
