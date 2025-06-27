@@ -26,5 +26,31 @@
     <link rel="icon" href="./public/favicon.png" type="image/x-icon" />
     <title>Inventory System</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Inventory System</h1>
+      <p>Developed by Willman Giraldo Zambrano</p>
+    </header>
+
+    <main>
+      <section id="product-form">
+        <h2>Add Product</h2>
+        <form id="add-product-form">
+          <input type="text" id="product-name" placeholder="Product Name" required />
+          <input type="number" id="product-quantity" placeholder="Quantity" required />
+          <input type="number" id="product-price" placeholder="Price" required />
+          <button type="submit">Add Product</button>
+        </form>
+      </section>
+
+      <section id="product-list">
+        <h2>Product List</h2>
+        <ul id="products"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 WillmanGZ. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
