@@ -59,6 +59,7 @@ function addProduct(event) {
     renderProducts();
     productNameInput.value = "";
     productPriceInput.value = "";
+    alert("Product were added successfully! ");
   } else {
     alert("Please fill in all fields with valid data.");
   }
@@ -95,10 +96,12 @@ editProductButton.addEventListener("click", (event) => {
   productNameInput.value = "";
   productPriceInput.value = "";
   renderProducts();
+  alert("Product were modified successfully! ")
 });
 
 // Function to delete a product
 function deleteProduct(index) {
   products.splice(index, 1);
   renderProducts();
+  alert("Product were deleted successfully! ")
 }

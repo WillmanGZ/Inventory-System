@@ -108,7 +108,7 @@ main {
 
 #edit-product-button {
   display: none;
-  background-color: red;
+  background-color: green !important;
 }
 
 /* Product List */
@@ -174,11 +174,11 @@ main {
 }
 
 .edit-button {
-  background: var(--secondary);
+  background-color: blue;
 }
 
 .delete-button {
-  background: #ff6b6b;
+  background: red;
 }
 
 /* Footer */
